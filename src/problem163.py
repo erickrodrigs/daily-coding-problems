@@ -16,14 +16,6 @@ You can assume the given expression is always valid.
 
 
 def evaluate_reverse_polish_expression(expression):
-    def calculate_value(a, b, operand):
-        return {
-            "+": a + b,
-            "-": a - b,
-            "*": a * b,
-            "/": a / b,
-        }[operand]
-
     stack = []
     operators = {'+', '-', '*', '/'}
 
@@ -31,10 +23,10 @@ def evaluate_reverse_polish_expression(expression):
         if item in operators:
             number_b = stack.pop()
             number_a = stack.pop()
-            value = calculate_value(number_a, number_b, item)
+            value = int(eval(str(number_a) + item + str(number_b)))
             stack.append(value)
         else:
-            stack.append(item)
+            stack.append(int(item))
 
     return stack.pop()
 
