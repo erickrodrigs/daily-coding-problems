@@ -45,6 +45,17 @@ def find_busiest_period(data_entries):
     return (start_time, end_time)
 
 
+def test_find_busiest_period():
+    entries = [
+        {"timestamp": 1526579928, "count": 3, "type": "enter"},
+        {"timestamp": 1526579982, "count": 4, "type": "enter"},
+        {"timestamp": 1526580054, "count": 5, "type": "exit"},
+        {"timestamp": 1526580128, "count": 1, "type": "enter"},
+        {"timestamp": 1526580382, "count": 3, "type": "exit"},
+    ]
+    assert find_busiest_period(entries) == (1526579982, 1526580054)
+
+
 """
 SOLUTION:
 time: O(n lgn), where n is the total of data entries/exists

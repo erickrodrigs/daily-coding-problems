@@ -27,6 +27,18 @@ def find_pairs_of_palindromes(list):
     return pairs
 
 
+def test_when_there_are_no_pairs_of_palindromes():
+    list = ["abc", "def", "ghi"]
+    expected = []
+    assert find_pairs_of_palindromes(list) == expected
+
+
+def test_when_there_are_pairs_of_palindromes():
+    list = ["code", "edoc", "da", "d"]
+    expected = [(0, 1), (1, 0), (2, 3)]
+    assert find_pairs_of_palindromes(list) == expected
+
+
 """
 SOLUTION:
 - let a and b the lengths of the two longest words in the array of length n.

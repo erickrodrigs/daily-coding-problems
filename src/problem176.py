@@ -27,6 +27,14 @@ def exist_character_mapping(s1, s2):
     return True
 
 
+def test_when_there_exists_character_mapping():
+    assert exist_character_mapping("abc", "bcd") == True
+
+
+def test_when_there_is_no_character_mapping():
+    assert exist_character_mapping("foo", "bar") == False
+
+
 """
 SOLUTION:
 n = len(s1) = len(s2)

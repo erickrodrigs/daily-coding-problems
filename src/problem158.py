@@ -54,6 +54,16 @@ def count_ways_to_reach_the_bottom_right_corner(matrix):
     return count_helper(end_i - 1, end_j - 1, matrix, 1)
 
 
+def test_count_ways_to_reach_bottom():
+    matrix = [
+        [0, 0, 0, 1],
+        [0, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 0]
+    ]
+    assert count_ways_to_reach_the_bottom_right_corner(matrix) == 7
+
+
 """
 SOLUTION:
 - time complexity: O(2^(n * m))

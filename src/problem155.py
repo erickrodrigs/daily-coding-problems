@@ -27,6 +27,11 @@ def majority_element(lst):
     return None
 
 
+def test_find_majority_element():
+    lst = [1, 2, 1, 1, 3, 4, 1]
+    assert majority_element(lst) == 1
+
+
 """
 SOLUTION:
 n = len(lst)

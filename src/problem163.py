@@ -31,6 +31,20 @@ def evaluate_reverse_polish_expression(expression):
     return stack.pop()
 
 
+def test_evaluate_expressions():
+    tests = [
+        {"expression": [5, 3, "+"], "expected": 8},
+        {"expression": [15, 7, 1, 1, "+", "-", "/", 3,
+                        "*", 2, 1, 1, "+", "+", "-"], "expected": 5},
+        {"expression": [10, 6, 9, 3, "+", -11, "*",
+                        "/", "*", 17, "+", 5, "+"], "expected": 22}
+    ]
+
+    for test in tests:
+        expression, expected = test["expression"], test["expected"]
+        assert evaluate_reverse_polish_expression(expression) == expected
+
+
 """
 SOLUTION:
 - time: O(n)

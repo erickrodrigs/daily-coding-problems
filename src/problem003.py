@@ -63,6 +63,11 @@ def deserialize(s):
     return root
 
 
+def test_serialize_deserialize():
+    root = Node('root', Node('left', Node('left.left')), Node('right'))
+    assert deserialize(serialize(root)).left.left.val == 'left.left'
+
+
 """
 SOLUTION:
 n = number of tree nodes

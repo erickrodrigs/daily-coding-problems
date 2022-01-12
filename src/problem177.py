@@ -10,6 +10,7 @@ become 3 -> 5 -> 7 -> 7.
 Given the linked list 1 -> 2 -> 3 -> 4 -> 5 and k = 3, it should
 become 3 -> 4 -> 5 -> 1 -> 2
 """
+from utils.linked_list import LinkedList
 
 
 def size_list(head):
@@ -55,6 +56,24 @@ def rotate_list(linked_list, k):
         last_node.next = linked_list
 
     return new_head
+
+
+def test_for_empty_list():
+    linked_list = LinkedList()
+    linked_list.head = rotate_list(linked_list.head, 9)
+    assert str(linked_list) == ""
+
+
+def test_when_list_size_is_one():
+    linked_list = LinkedList.create([7])
+    linked_list.head = rotate_list(linked_list.head, 1)
+    assert str(linked_list) == "7"
+
+
+def test_when_k_is_smaller_than_list_size():
+    linked_list = LinkedList.create([1, 2, 3, 4, 5])
+    linked_list.head = rotate_list(linked_list.head, 3)
+    assert str(linked_list) == "3 -> 4 -> 5 -> 1 -> 2"
 
 
 """

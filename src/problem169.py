@@ -5,6 +5,7 @@ Given a linked list, sort it in O(n log n) time and constant space.
 
 For example, the linked list 4 -> 1 -> -3 -> 99 should become -3 -> 1 -> 4 -> 99
 """
+from utils.linked_list import LinkedList
 
 
 def sort_linked_list(linked_list):
@@ -60,3 +61,11 @@ def sort_linked_list(linked_list):
         return merge(list_a, list_b)
 
     return merge_sort(linked_list)
+
+
+def test_sort_linked_list():
+    items = [4, 1, -3, 99]
+    linked_list = LinkedList.create(items)
+    linked_list.head = sort_linked_list(linked_list.head)
+
+    assert str(linked_list) == "-3 -> 1 -> 4 -> 99"
