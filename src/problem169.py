@@ -7,7 +7,7 @@ For example, the linked list 4 -> 1 -> -3 -> 99 should become -3 -> 1 -> 4 -> 99
 """
 
 
-def sort_linked_list(self):
+def sort_linked_list(linked_list):
     def merge(list_a, list_b):
         head = None
         node = None
@@ -59,4 +59,4 @@ def sort_linked_list(self):
 
         return merge(list_a, list_b)
 
-    self.head = merge_sort(self.head)
+    return merge_sort(linked_list)

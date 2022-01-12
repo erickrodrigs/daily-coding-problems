@@ -8,8 +8,14 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def first(self):
-        return self.head
+    @staticmethod
+    def create(lst):
+        linked_list = LinkedList()
+
+        for item in lst:
+            linked_list.append(item)
+
+        return linked_list
 
     def append(self, data):
         new_node = LinkedNode(data)
@@ -24,7 +30,7 @@ class LinkedList:
 
         node.next = new_node
 
-    def to_string(self):
+    def __str__(self):
         node = self.head
         string = ""
 
@@ -38,3 +44,13 @@ class LinkedList:
             node = node.next
 
         return string
+
+    def to_list(self):
+        lst = []
+        node = self.head
+
+        while node != None:
+            lst.append(node.data)
+            node = node.next
+
+        return lst

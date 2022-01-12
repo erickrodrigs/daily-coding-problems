@@ -14,11 +14,8 @@ class TestLinkedList:
         def test_when_list_is_empty(self):
             list = LinkedList()
             list.append(2)
-            assert list.to_string() == "2"
+            assert str(list) == "2"
 
         def test_when_list_has_at_least_one_item(self):
-            list = LinkedList()
-            list.append(1)
-            list.append(2)
-            list.append(3)
-            assert list.to_string() == "1 -> 2 -> 3"
+            list = LinkedList.create([1, 2, 3])
+            assert str(list) == "1 -> 2 -> 3"
