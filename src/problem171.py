@@ -30,7 +30,6 @@ def find_busiest_period(data_entries):
         timestamp, count = data["timestamp"], data["count"]
 
         if data["type"] == "enter":
-            print("AQUI")
             current_people_in_the_building += count
 
             if current_people_in_the_building > max_people_in_the_building:
