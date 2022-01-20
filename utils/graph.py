@@ -18,6 +18,12 @@ class Graph:
     def vertices(self):
         return self.graph.keys()
 
+    def adjacents(self, v):
+        if v not in self.graph:
+            raise Exception('vertex not in the graph')
+
+        return self.graph[v]
+
     def edges(self):
         all_edges = set()
 
@@ -27,38 +33,3 @@ class Graph:
                     all_edges.add((v, u))
 
         return list(all_edges)
-
-    def bfs(self):
-        visited = dict()
-
-        for vertex in self.graph.keys():
-            visited[vertex] = False
-
-        queue = Queue()
-        queue.put(self.graph.keys()[0])
-
-        while not queue.empty():
-            v = queue.get()
-            visited[v] = True
-            adjacents = self.graph[v]
-
-            for adj in adjacents:
-                if not visited[adj]:
-                    queue.put(adj)
-
-    def dfs(self):
-        def dfs_helper(vertex, visited):
-            visited[vertex] = True
-            adjacents = self.graph[vertex]
-
-            for adj in adjacents:
-                if not visited[adj]:
-                    dfs_helper(adj, visited)
-
-        visited = dict()
-
-        for vertex in self.graph.keys():
-            visited[vertex] = False
-
-        vertex = self.graph.keys()[0]
-        dfs_helper(vertex, visited)
